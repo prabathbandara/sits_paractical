@@ -51,7 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return {@link Employee}
      */
     @Override
-    public Employee getEmployeeById(final Integer id) {
+    public Employee getEmployeeById(final Long id) {
         try {
             Optional<Employee> employeeById = repository.findById(id);
             if (employeeById.isPresent()) {
@@ -89,7 +89,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @return {@link Employee}
      */
     @Override
-    public Employee updateEmployee(final Integer id, final Employee employee) {
+    public Employee updateEmployee(final Long id, final Employee employee) {
         try {
             Optional<Employee> employeeById = repository.findById(id);
             if (employeeById.isPresent()) {
@@ -124,7 +124,7 @@ public class EmployeeServiceImpl implements EmployeeService {
      * @param id {@link Integer}
      */
     @Override
-    public void deleteEmployee(final Integer id) {
+    public void deleteEmployee(final Long id) {
         try {
             repository.deleteById(id);
             log.info("Employee Deleted Successfully | Employee Id {}", id);

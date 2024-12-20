@@ -53,8 +53,8 @@ class EmployeeServiceImplTest {
     @Test
     void getEmployeeByIdTest() {
         Employee employee = new Employee();
-        when(repository.findById(1)).thenReturn(Optional.of(employee));
-        assertEquals(employee, employeeService.getEmployeeById(1));
+        when(repository.findById(1L)).thenReturn(Optional.of(employee));
+        assertEquals(employee, employeeService.getEmployeeById(1L));
     }
 
     @Test
@@ -67,15 +67,15 @@ class EmployeeServiceImplTest {
     @Test
     void updateEmployeeTest() {
         Employee employee = new Employee();
-        when(repository.findById(1)).thenReturn(Optional.of(employee));
+        when(repository.findById(1L)).thenReturn(Optional.of(employee));
         when(repository.save(employee)).thenReturn(employee);
-        assertEquals(employee, employeeService.updateEmployee(1, employee));
+        assertEquals(employee, employeeService.updateEmployee(1L, employee));
     }
 
     @Test
     void deleteEmployeeTest() {
-        employeeService.deleteEmployee(1);
-        verify(repository, times(1)).deleteById(1);
+        employeeService.deleteEmployee(1L);
+        verify(repository, times(1)).deleteById(1L);
     }
 
 }
